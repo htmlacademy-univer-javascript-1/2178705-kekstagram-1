@@ -5,7 +5,7 @@ function getRandomNumber (firstNumber, secondNumber){
     return Math.floor(Math.random() * (secondNumber - firstNumber + 1)) + firstNumber;
   }
   else {
-    return 'Упс! Ошибка!!!! Видимо вы что-то не так';
+    throw {name: 'Упс! Ошибка!!!!', message: 'Видимо вы что-то не так ввели!'};
   }
 }
 
@@ -13,11 +13,6 @@ getRandomNumber(0, 100);
 
 /// Фукция проверки строки
 
-function checkMaxLengthString(string, lenString) {
-  if(string.length<= lenString && lenString<=140){
-    return true;
-  }
-  return false;
-}
+const checkMaxLengthString = (string, lenString) => string.length <= lenString;
 
 checkMaxLengthString("Вау! Вот это фотка!", 19);
