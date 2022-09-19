@@ -15,4 +15,4 @@ getRandomNumber(0, 100);
 
 const checkMaxLengthString = (string, lenString) => string.length <= lenString;
 
-checkMaxLengthString("Вау! Вот это фотка!", 19);
+checkMaxLengthString('Вау! Вот это фотка!', 19);
