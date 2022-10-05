@@ -1,3 +1,5 @@
+const photoCount = 25;
+
 ///База с комментариями
 const txt = [
   'Всё отлично!',
@@ -133,6 +135,11 @@ const getMessage = function () {
 ///Создание имени комментатора
 const getName = () => names[getRandomNumber(0, names.length-1)];
 
+const commentsArr = [];
+for (let i = 0; i < getRandomNumber(1, 20); i++){
+  commentsArr.push(getComment(getMessage(), getName()));
+}
+
 ///Функция получения одного объекта
 function getObject(id, urlDescription, description, likes){
   return {
@@ -140,12 +147,12 @@ function getObject(id, urlDescription, description, likes){
     url: urlDescription,
     description,
     likes,
-    comments: getComment(getId, getAvatar, getMessage(), getName())
+    comments: commentsArr
   };
 }
 
 ///Функция получения коментария
-function getComment(id, avatar, message, name) {
+function getComment(message, name) {
   return {
     id: getIdComment(1, 500),
     avatar: getAvatar(1, 6),
@@ -155,7 +162,7 @@ function getComment(id, avatar, message, name) {
 }
 
 ///Создание 25 объектов в массиве
-for (let i = 0; i < 25; i++){
+for (let i = 0; i < photoCount; i++){
   objectsArray.push(getObject(getId(1, 25),  `photos/${  getUrl(1, 25)  }.jpg`, getDescription(), getLikes(15, 200)));
 }
 
