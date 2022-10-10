@@ -118,11 +118,13 @@ const getMessage = function () {
 
 ///Создание имени комментатора
 const getName = () => names[getRandomNumber(0, names.length-1)];
-
-const commentsArr = [];
-for (let i = 0; i < getRandomNumber(1, 20); i++){
-  commentsArr.push(getComment(getMessage(), getName()));
-}
+const getComments = function () {
+  const commentsArr = [];
+  for (let i = 0; i < getRandomNumber(1, 20); i++) {
+    commentsArr.push(getComment(getMessage(), getName()));
+  }
+  return commentsArr;
+};
 
 ///Функция получения одного объекта
 function getObject(){
@@ -131,7 +133,7 @@ function getObject(){
     url: `photos/${  getUrl(1, 25)  }.jpg`,
     description: getDescription(),
     likes: getLikes(15, 200),
-    comments: commentsArr
+    comments: getComments()
   };
 }
 
@@ -146,7 +148,7 @@ function getComment(message, name) {
 }
 
 ///Создание 25 объектов в массиве
-const objects = function () {
+const getObjects = function () {
   const photoCount = 25;
   const objectsArray = [];
   for (let i = 0; i < photoCount; i++) {
@@ -155,4 +157,4 @@ const objects = function () {
   return objectsArray;
 };
 
-export {objects};
+export {getObjects};
