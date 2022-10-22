@@ -148,7 +148,7 @@ function getComment(message, name) {
 }
 
 ///Создание 25 объектов в массиве
-const getObjects = function () {
+const getObjects = () => {
   const photoCount = 25;
   const objectsArray = [];
   for (let i = 0; i < photoCount; i++) {
@@ -157,4 +157,5 @@ const getObjects = function () {
   return objectsArray;
 };
 
-export {getObjects};
+const resultArray = getObjects();
+export {resultArray};
