@@ -24,9 +24,7 @@ const validateHashtags = (symbol) => {
   return hashtags.length <= 5 && hashtags.length === uniqueHashtags.length;
 };
 
-const validateDescriptions = (description) => {
-  return description.length <= 140;
-};
+const validateDescriptions = (description) => description.length <= 140;
 
 const validateForm = (evt) => {
   if(!pristine.validate()) {
