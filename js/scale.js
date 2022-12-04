@@ -17,7 +17,7 @@ const getScaleSmaller = () => {
   const currentValue = parseInt(scaleValue.value, 10);
   let newValue = currentValue - STEP;
   if (newValue < MIN){
-    newValue = MIN
+    newValue = MIN;
   }
   getScaleImg(newValue);
 };
