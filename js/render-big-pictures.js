@@ -12,7 +12,7 @@ const commentList = document.querySelector('.social__comments');
 let commentCount = 0;
 const MAX_SIZE = 5;
 
-const closePhoto = function () {
+const closePhoto = () => {
   bigPicture.classList.add('hidden');
   body.classList.remove('modal-open');
   pictureClose.removeEventListener('click', closePhoto);
