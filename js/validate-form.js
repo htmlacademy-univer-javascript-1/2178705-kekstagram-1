@@ -1,7 +1,7 @@
 const formUpload = document.querySelector('#upload-select-image');
 const textHashtag = document.querySelector('.text__hashtags');
 const textDescription = document.querySelector('.text__description');
-const hastegValidateSymbols = /^#[a-zа-яё0-9]{1,19}$/;
+const hashtegValidateSymbols = /^#[a-zа-яё0-9]{1,19}$/;
 
 const pristine = new Pristine(formUpload, {
   classTo: 'img-upload__field-wrapper',
@@ -17,7 +17,7 @@ const validateHashtags = (symbol) => {
   }
 
   for (const hashtag of hashtags){
-    if (!hastegValidateSymbols.test(hashtag)) {
+    if (!hashtegValidateSymbols.test(hashtag)) {
       return false;
     }
   }

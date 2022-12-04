@@ -3,7 +3,7 @@
 /* eslint-disable no-unused-vars */
 import {resultArray} from './data.js';
 import './util.js';
-import '.form.js';
+import './form.js';
 import {photosContainer} from './render.js';
 import {showBigPicture} from './render-big-pictures.js';
 
