@@ -1,14 +1,23 @@
-///Печать массива в консоли
-// eslint-disable-next-line no-console
-/* eslint-disable no-unused-vars */
-import {resultArray} from './data.js';
 import './util.js';
+/* eslint-disable no-unused-vars */
+import { getData } from './fetch.js';
 import './form.js';
+import  './filter.js';
 import './scale.js';
-import './filter.js';
-import {photosContainer} from './render.js';
-import {showBigPicture} from './render-big-pictures.js';
+import {showFilteredPhotos} from './views.js';
 
+function showError(errorMessage) {
+  const errorTemplate = document.querySelector('#error').content.querySelector('section');
+  const error = errorTemplate.cloneNode(true);
+  error.querySelector('h2').textContent = errorMessage;
+  error.querySelector('button').remove();
+  document.querySelector('body').append(error);
+  setTimeout(() => {
+    error.remove();
+  }, 5000);
+}
+
+getData(showFilteredPhotos, showError);
 
 // eslint-disable-next-line no-console
 
