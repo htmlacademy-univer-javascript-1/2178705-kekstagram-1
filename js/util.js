@@ -8,6 +8,18 @@ const getRandomNumber = function (firstNumber, secondNumber){
   }
 };
 
+const getRandomElementsArray = (arr, count) => {
+  const copiedArray = arr.slice();
+  const newArray = [];
+  for (let i = 0; i < count; i++) {
+    const randomIndex = getRandomNumber(0, copiedArray.length - 1);
+    newArray.push(copiedArray[randomIndex]);
+    copiedArray.splice(randomIndex, 1);
+  }
+  return newArray;
+};
+
+
 /// Фукция проверки строки
 const checkMaxLengthString = (string, lenString) => string.length <= lenString;
 
@@ -15,4 +27,12 @@ checkMaxLengthString('Вау! Вот это фотка!', 19);
 
 const isEscape = (evt) => evt.key === 'Escape';
 
-export {getRandomNumber, isEscape};
+function debounce (callback, timeoutDelay = 500) {
+  let timeoutId;
+  return (...rest) => {
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => callback.apply(this, rest), timeoutDelay);
+  };
+}
+
+export {getRandomNumber, isEscape, debounce, getRandomElementsArray};
