@@ -4,7 +4,7 @@ import { getData } from './fetch.js';
 import './form.js';
 import  './filter.js';
 import './scale.js';
-import {showFilteredPhotos} from './views.js';
+import {showFilteredPhotos} from './img-filters.js';
 
 function showError(errorMessage) {
   const errorTemplate = document.querySelector('#error').content.querySelector('section');
