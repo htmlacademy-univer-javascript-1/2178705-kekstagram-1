@@ -1,16 +1,15 @@
-
 import {showBigPicture} from './render-big-pictures.js';
 
 const pictureTemplate = document.querySelector('#picture').content;
 const newPictureTemplate = pictureTemplate.querySelector('.picture');
 const photosContainer = document.querySelector('.pictures');
 
-const getPhotoElement = function ({url, likes, comments}){
+const getPhotoElement = function (photoObject){
   const clonedPhoto = newPictureTemplate.cloneNode(true);
-  clonedPhoto.querySelector('img').src = url;
-  clonedPhoto.querySelector('.picture__likes').textContent = likes;
-  clonedPhoto.querySelector('.picture__comments').textContent = comments.length;
-  clonedPhoto.addEventListener('click', () => showBigPicture({url, likes, comments}));
+  clonedPhoto.querySelector('img').src = photoObject.url;
+  clonedPhoto.querySelector('.picture__likes').textContent = photoObject.likes;
+  clonedPhoto.querySelector('.picture__comments').textContent = photoObject.comments.length;
+  clonedPhoto.addEventListener('click', () => showBigPicture(photoObject));
 
   return clonedPhoto;
 };
