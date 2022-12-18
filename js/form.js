@@ -34,7 +34,7 @@ const closeFormByEsc = (evt) => {
   }
 };
 
-const  addEvtToForm = () => {
+const addEvtToForm = () => {
   formClose.addEventListener('click', closeForm);
   document.addEventListener('keydown', closeFormByEsc);
   formPicture.addEventListener('submit', validateForm);
@@ -45,6 +45,8 @@ inputImage.addEventListener('change', function () {
     body.classList.add('modal-open');
     form.classList.remove('hidden');
     addEvtToForm();
+    const newFile = inputImage.files[0];
+    imgPreview.src = URL.createObjectURL(newFile);
   }
 });
 
