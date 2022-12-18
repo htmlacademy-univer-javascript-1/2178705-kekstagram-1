@@ -5,17 +5,12 @@ import './form.js';
 import  './filter.js';
 import './scale.js';
 import {showFilteredPhotos} from './img-filters.js';
+import { showError } from './alert.js';
+import './render.js';
+import './validate-form.js';
+import './render-big-pictures.js';
+import './img-filters.js';
 
-function showError(errorMessage) {
-  const errorTemplate = document.querySelector('#error').content.querySelector('section');
-  const error = errorTemplate.cloneNode(true);
-  error.querySelector('h2').textContent = errorMessage;
-  error.querySelector('button').remove();
-  document.querySelector('body').append(error);
-  setTimeout(() => {
-    error.remove();
-  }, 5000);
-}
 
 getData(showFilteredPhotos, showError);
 
