@@ -1,9 +1,9 @@
-const formUpload = document.querySelector('#upload-select-image');
-const textHashtag = document.querySelector('.text__hashtags');
+const uploadSelectPhoto = document.querySelector('#upload-select-image');
+const textHashtags = document.querySelector('.text__hashtags');
 const textDescription = document.querySelector('.text__description');
-const hashtegValidateSymbols = /^#[a-zа-яё0-9]{1,19}$/;
+const symbolsForHashtag = /^#[a-zа-яё0-9]{1,19}$/;
 
-const pristine = new Pristine(formUpload, {
+const pristine = new Pristine(uploadSelectPhoto, {
   classTo: 'img-upload__field-wrapper',
   errorTextParent: 'img-upload__field-wrapper'
 });
@@ -17,7 +17,7 @@ const validateHashtags = (symbol) => {
   }
 
   for (const hashtag of hashtags){
-    if (!hashtegValidateSymbols.test(hashtag)) {
+    if (!symbolsForHashtag.test(hashtag)) {
       return false;
     }
   }
@@ -33,7 +33,7 @@ const validateForm = (evt) => {
 };
 
 pristine.addValidator(
-  textHashtag,
+  textHashtags,
   validateHashtags,
   'Максимум хэштегов: 5. Максимальная длина хэштега: 20 символов'
 );
